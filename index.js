@@ -99,7 +99,7 @@ app.get('*', (req, res) => {
 })
 
 // mongo db
-const CONNECTION_URL = `mongodb+srv://jravelle:${MONGO_DB_PASS}@cluster0.mc1if.mongodb.net/gameswap?retryWrites=true&w=majority`;
+const CONNECTION_URL = `mongodb+srv://jravelle:${process.env.MONGO_DB_PASS}@cluster0.mc1if.mongodb.net/gameswap?retryWrites=true&w=majority`;
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true})
