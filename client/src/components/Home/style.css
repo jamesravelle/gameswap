@@ -1,0 +1,10 @@
+.hero{
+    height:70vh;
+    min-height:500px;
+    margin-bottom:-30vh;
+}
+
+.angle-bg{
+    background: rgb(229,231,235);
+    background: linear-gradient(-5deg, rgba(229,231,235,1) 50%, rgba(0,0,0,1) 50.5%);
+}
