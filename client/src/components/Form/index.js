@@ -5,8 +5,6 @@ import SearchResults from './SearchResults'
 
 import './style.css'
 
-const url = 'http://localhost:5000/posts';
-
 function Form({setRefresh}) {
 
   // game search
@@ -26,7 +24,7 @@ function Form({setRefresh}) {
     setLoading(true)
     console.log(page);
 
-    let searchString = page ? page : `http://localhost:5000/rawg/${search}`
+    let searchString = page ? page : `/rawg/${search}`
     axios
     .get(searchString)
     .then(response =>{
@@ -44,7 +42,7 @@ const addGame = (e) => {
   console.log(JSON.parse(e.target[0].value));
   e.preventDefault();
     axios
-    .post('http://localhost:5000/posts', JSON.parse(e.target[0].value))
+    .post('/posts', JSON.parse(e.target[0].value))
     .then(response =>{
       setRefresh(Math.random)
     }).catch(err =>{

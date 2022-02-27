@@ -2,8 +2,6 @@ import React, { useState, useEffect, useContext }  from 'react';
 import axios from 'axios'
 import './style.css'
 
-const url = 'http://localhost:5000/posts';
-
 function Posts({user, refresh}) {
     const [data, setData] = useState(null);
 
@@ -17,9 +15,9 @@ function Posts({user, refresh}) {
     const refreshData = () => {
         let url = "";
         if(user){
-            url = `http://localhost:5000/posts/user/${user}`
+            url = `/posts/user/${user}`
         } else {
-            url = "http://localhost:5000/posts/"
+            url = "/posts/"
         }
         axios
         .get(url)
@@ -33,7 +31,7 @@ function Posts({user, refresh}) {
 
     const deleteGame = (id) => {
         if(user && window.location.pathname == '/portal'){
-            let url = `http://localhost:5000/posts/${id}`
+            let url = `/posts/${id}`
             axios
             .delete(url)
             .then(response =>{

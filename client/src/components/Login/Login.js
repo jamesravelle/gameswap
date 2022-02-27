@@ -18,7 +18,7 @@ const Login = (props) => {
     const formSubmit = (e) => {
         e.preventDefault();
 
-        axios.post("http://localhost:5000/Login",{
+        axios.post("/Login",{
             email:e.target[0].value,
             password:e.target[1].value
         })

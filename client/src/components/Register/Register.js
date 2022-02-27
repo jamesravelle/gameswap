@@ -17,29 +17,6 @@ const Register = () => {
         setUser({});
     },[])
 
-    // const handleChange = e =>{
-    //     const {name,value} = e.target
-    //     setInput({
-    //     ...input,//spread operator 
-    //     [name]:value
-    //     })
-    //     console.log(user);
-    // }
-//register function 
-//    const egister = (e)=>{
-//     e.preventDefault();
-//    const {email,password} = input
-//    if (email && password){
-//     axios.post("http://localhost:5000/Register",input )
-//     .then(res=> {
-//         console.log(res.data.user);
-//         setUser(res.data.user)
-//         history('/')
-//     })
-//    } else{
-//        alert("invalid input")
-//    }};
-
    const formSubmit = (e) => {
     e.preventDefault();
 
@@ -65,7 +42,7 @@ const Register = () => {
         return
     }
 
-    axios.post("http://localhost:5000/Register",{
+    axios.post("/Register",{
         username, email, password
     })
     .then(res=>{
