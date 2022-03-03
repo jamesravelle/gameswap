@@ -10,13 +10,10 @@ import './style.css'
 
 function Nav() {
     const [user,setUser] = useLocalStorage('user');
-    const history = useNavigate()
 
-    const logout = (e) => {
-        e.preventDefault();
+    const logout = () => {
         setUser({});
         localStorage.setItem('user', {});
-        history.push('/')
     }
 
     return (
@@ -34,7 +31,7 @@ function Nav() {
               if(user){
                 return(
                   <>
-                    {user._id ? <a href="#" onClick={logout}>Logout</a> : <a href="/login">Login</a> }
+                    {user._id ? <a href="/" onClick={logout}>Logout</a> : <a href="/login">Login</a> }
                     {!user._id && <a href="/register">Register</a>}
                     {user._id && <a href="/portal">Portal</a>}
                   </>

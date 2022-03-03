@@ -2,15 +2,16 @@ import React, { useState, useEffect, useContext }  from 'react';
 import axios from 'axios'
 import './style.css'
 
-function Posts({user, refresh}) {
+function Posts({user, refresh, search}) {
     const [data, setData] = useState(null);
+    
 
     console.log("USER",user)
 
     useEffect(()=>{
         console.log(user);
         refreshData();
-    },[user, refresh])
+    },[user, refresh, search])
 
     const refreshData = () => {
         let url = "";
@@ -54,16 +55,24 @@ function Posts({user, refresh}) {
     const visitProfile = (data) => {
         window.location = `/profile/${data.username}`
     }
+
+    const filterSearch = (i) => {
+        if(search){
+            return data[i].game.toLowerCase().includes(search.toLowerCase())
+        } else {
+            return i;
+        }
+    }
     
     return (
       <div className="container flex flex-wrap mx-auto px-4">
-        {data && Object.keys(data).map(function(key, i) {
+        {data && Object.keys(data).filter(i => filterSearch(i)).map(function(key, i) {
             return (
                 <div className="game w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 relative overflow-hidden" key={key}>
                     <div className="overflow-hidden shadow-lg h-full bg-white">
-                        <div className="h-64 bg-cover" style={{backgroundImage:`url("${data[key].image ? data[key].image : ''}")`}}>&nbsp;</div>
+                        <div className="h-64 bg-cover bg-center" style={{backgroundImage:`url("${data[key].image ? data[key].image : ''}")`}}>&nbsp;</div>
                         <div className="p-2 " key={i}>
-                            <h2 className="border-b-2 ">{data[key].game}</h2>
+                            <h2>{data[key].game}</h2>
                             <div className="flex">
                                 <svg className="mr-3" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8zM6 15h2v-2h2v-2H8V9H6v2H4v2h2z"/><circle cx="14.5" cy="13.5" r="1.5"/><circle cx="18.5" cy="10.5" r="1.5"/></svg>
                                 {data[key].platform}

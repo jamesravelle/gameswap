@@ -23,7 +23,6 @@ function Portal() {
 
     return (
       <>
-         <Nav />
          <div className="portal-container"> 
           <Form setRefresh={setRefresh} />
           <h1 className="text-center py-4">{user.username}'s Collection</h1>

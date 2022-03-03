@@ -37,8 +37,8 @@ function App() {
   console.log("APP", user);
 
   return (
-    <main>
       <BrowserRouter>
+      <Nav />
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/login" element={<Login/>} />
@@ -47,7 +47,6 @@ function App() {
           <Route exact path="/profile/:id" element={<Profile />}/>
         </Routes>
       </BrowserRouter>
-    </main>
   )
 }
 

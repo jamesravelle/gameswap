@@ -7,13 +7,8 @@ import useLocalStorage from '../hooks/useLocalStorage';
 import Nav from '../Nav';
 
 const Login = (props) => {
-    const history = useNavigate()
     
     const [user,setUser] = useLocalStorage('user');
-    const [input, setInput] = useState({
-        email: "",
-        password: ""
-    })
 
     const formSubmit = (e) => {
         e.preventDefault();
@@ -25,13 +20,12 @@ const Login = (props) => {
         .then(res=>{
             console.log(res.data.user);
             setUser(res.data.user)
-            history('/portal')
+            window.location.href = '/portal';
         })
     }
 
     return (
         <>
-        <Nav />
         <div className="bg-gray-300 py-4 h-screen p-4">
             <div className="bg-white p-6 md:w-1/2 mx-auto shadow-lg">
                 <h1>Login in to your account</h1>

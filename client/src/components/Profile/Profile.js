@@ -8,7 +8,6 @@ const Profile = () => {
     const { id } = useParams();
     return (
         <>
-        <Nav />
         <div className="container mx-auto">
             <h1 className="text-center my-6">Games for user: { id }</h1>
             <Posts user={id} />

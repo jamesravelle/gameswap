@@ -58,7 +58,6 @@ const Register = () => {
    
     return (
         <>
-        <Nav />
         <div className="bg-gray-300 py-4 h-screen p-4">
             <div className="bg-white p-6 shadow-lg md:w-1/2 mx-auto">
                 <h1>Sign up for a new account</h1>
