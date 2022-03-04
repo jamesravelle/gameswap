@@ -7,10 +7,6 @@ import Nav from '../Nav';
 const Register = () => {
     const history = useNavigate()
     const [user,setUser] = useLocalStorage('user');
-    // const [input, setInput] = useState({
-    //     email: '',
-    //     password: ''
-    // })
     const [error, setError] = useState('');
 
     useEffect(()=>{
@@ -65,7 +61,7 @@ const Register = () => {
                     <input type="text" className="my-2 p-2 border-black border-2"/>
                     <input type="text" className="my-2 p-2 border-black border-2"/>
                     <input type="password" className="my-2 p-2 border-black border-2"/>
-                    <input type="submit" className="bg-black text-white p-2" />
+                    <input disabled type="submit" className="bg-black text-white p-2" />
                     <div className="text-red-500 mt-2 font-bold">
                         {error}
                     </div>
