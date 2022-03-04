@@ -1,22 +1,23 @@
 import React, { useState, useEffect, useContext }  from 'react';
 import axios from 'axios'
+import useLocalStorage from '../hooks/useLocalStorage';
+
 import './style.css'
 
-function Posts({user, refresh, search}) {
+function Posts({profile, refresh, search}) {
     const [data, setData] = useState(null);
-    
+    const [user,setUser] = useLocalStorage('user');
 
     console.log("USER",user)
 
     useEffect(()=>{
-        console.log(user);
         refreshData();
-    },[user, refresh, search])
+    },[refresh, search])
 
     const refreshData = () => {
         let url = "";
-        if(user){
-            url = `/posts/user/${user}`
+        if(profile){
+            url = `/posts/user/${profile}`
         } else {
             url = "/posts/"
         }
@@ -44,11 +45,15 @@ function Posts({user, refresh, search}) {
     }
 
     const contact = (data) => {
+        if(!user.username){
+            alert('You must be logged in to contact users.')
+            return;
+        }
         window.location = 
         `
         mailto:${data.user.trim()}
-        ?subject=${data.username} is interested in ${data.game}
-        &body=Please view my collection: https://game-swap-app.herokuapp.com/profile/${data.username} 
+        ?subject=${user.username} is interested in ${data.game}
+        &body=Please view my collection: https://game-swap-app.herokuapp.com/profile/${user.username} 
         `;
     }
 

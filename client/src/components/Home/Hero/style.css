@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.hero{
+    height:75vh;
+    min-height:500px;
+    margin-bottom:-20vh;
+}
+
+.hero h1{
+    font-family: 'Press Start 2P', cursive;
+}

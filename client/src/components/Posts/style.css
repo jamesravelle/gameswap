@@ -4,13 +4,13 @@
 }
 
 .email-icon{
-    top:30px;
+    top:90px;
     right:0;
 }
 
 
 .user-icon{
-    top:90px;
+    top:30px;
     right:0;
 }
 
@@ -21,13 +21,11 @@
     }
     
     .email-icon{
-        top:30px;
         right:-50px;
     }
     
     
     .user-icon{
-        top:90px;
         right:-50px;
     }
     

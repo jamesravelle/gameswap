@@ -21,7 +21,7 @@ function SearchResults({searchResults, loading, selectGame, searchSubmit, addGam
 
     return (
         <section className="container mx-auto flex items-center">
-        <div className="absolute top-1/2 left-0">
+        <div className="absolute top-1/2 left-2 bg-white rounded-full p-2 shadow-lg">
           <div onClick={()=>{searchSubmit(null, searchResults.hasOwnProperty('next') ? searchResults.previous : '')}} className="cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none" opacity=".87"/><path d="M17.51 3.87L15.73 2.1 5.84 12l9.9 9.9 1.77-1.77L9.38 12l8.13-8.13z"/></svg>
           </div>
@@ -46,14 +46,14 @@ function SearchResults({searchResults, loading, selectGame, searchSubmit, addGam
                   : ''
                   }
                 </select>
-                <input type="submit" value="+" className="w-12 ml-4 bg-blue-500 cursor-pointer text-white  text-2xl pb-1"/>
+                <input type="submit" value="+" className="w-12 ml-4 bg-purple-700 cursor-pointer text-white  text-2xl pb-1"/>
               </div>
             </form>
             </div>
           ))
         }
         </div>
-        <div className="absolute top-1/2 right-0">
+        <div className="absolute top-1/2 right-2 bg-white rounded-full p-2 shadow-lg">
           <div onClick={()=>{searchSubmit(null, searchResults.hasOwnProperty('next') ? searchResults.next : '')}} className="cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><polygon points="6.23,20.23 8,22 18,12 8,2 6.23,3.77 14.46,12"/></g></svg>          
           </div>

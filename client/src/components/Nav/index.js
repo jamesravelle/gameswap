@@ -19,12 +19,7 @@ function Nav() {
     return (
       <nav className="bg-black text-white"> 
         <div className="container mx-auto p-4 flex justify-between">
-            <div className="logo text-2xl w-1/2"><a href="/">GameSwap</a></div>
-            
-            {/* <a href={`/profile/${user.username}`}>{user.username}</a>
-            {user._id ? <a href="#" onClick={logout}>Logout</a> : <a href="/login">Login</a> }
-            {!user._id && <a href="/register">Register</a>}
-            {user._id && <a href="/portal">Portal</a>} */}
+            <div className="logo text-2xl w-1/2 -mt-1"><a href="/">GameSwap</a></div>
             <div className="main-menu">
             <a href="/">Home</a>
             {(() => {

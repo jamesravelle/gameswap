@@ -26,7 +26,7 @@ function Portal() {
          <div className="portal-container"> 
           <Form setRefresh={setRefresh} />
           <h1 className="text-center py-4">{user.username}'s Collection</h1>
-          <Posts refresh={refresh} user={user.username} />
+          <Posts refresh={refresh} profile={user.username} />
          </div>
       </>
     );
